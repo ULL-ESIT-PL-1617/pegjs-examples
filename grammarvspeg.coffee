@@ -5,8 +5,11 @@ grammar = """
   a =  b 'c'
   b = 'b' / 'b' 'a'   
 """
-parser = PEG.buildParser grammar, plugins: [coffee]
+parser = PEG.generate grammar, plugins: [coffee]
 r = parser.parse "bc"
 console.log("r = #{r}")
-r = parser.parse "bac"
-console.log("r = #{r}")
+try
+  r = parser.parse "bac"
+  console.log("r = #{r}")
+catch e
+  console.log(e.message)
