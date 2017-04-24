@@ -1,6 +1,6 @@
 start = wordlist
 
-wordlist = w1:word r:rest _ { return [w1].concat(r); }
+wordlist = firstWord:word r:rest _ { return [firstWord].concat(r); }
 
 rest = (spword)* 
 

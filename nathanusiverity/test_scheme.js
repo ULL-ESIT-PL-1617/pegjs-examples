@@ -7,7 +7,7 @@ var data = fs.readFileSync('scheme.pegjs', 'utf-8');
 // Show the PEG grammar file
 console.log(data);
 // Create my parser
-var parse = PEG.buildParser(data).parse;
+var parse = PEG.generate(data).parse;
 // Do a test
 
 var input = "(a b c)";
