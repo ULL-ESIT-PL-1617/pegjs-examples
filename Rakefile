@@ -1,4 +1,4 @@
-PEGJS = "../bin/pegjs"
+PEGJS = "pegjs"
 task :default => :run
 
 desc "Compile arithmetics.pegjs"
