@@ -16,7 +16,7 @@ grammar = '''
                        true 
                      } 'b' { 2 }
 '''
-parser = PEG.buildParser(grammar, plugins: [coffee])
+parser = PEG.generate(grammar, plugins: [coffee])
 r = parser.parse('a', x: 'hello')
 console.log r
 r = parser.parse("c\nb", y : 'world')
