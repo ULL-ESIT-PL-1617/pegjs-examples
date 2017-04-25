@@ -8,7 +8,7 @@ grammar =  `
      var g = "visible variable" 
      console.log("Inside Initializer! options = "+util.inspect(options))
    }                             
-   start = 'a' { console.log(g); 1 } 
+   start = 'a' { console.log(g); return 1 } 
          / c:'c' '\\n' &   { 
                        console.log("inside predicate: g = '"+g+"' c = '"+c+"'")
                        console.log("options = "+util.inspect(options))
@@ -21,7 +21,7 @@ grammar =  `
 
 parser = PEG.generate(grammar, { });
 r = parser.parse('a', { x: 'hello' });
-
+console.log(r);
 
 r = parser.parse("c\nb", { y: 'world' });
 console.log(r);
