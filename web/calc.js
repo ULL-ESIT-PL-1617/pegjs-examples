@@ -26,7 +26,7 @@ primary
 integer "integer"
   = NUMBER
 
-_ = ' '*
+_ = [ \\t\\n\\r\\u2028\\u2029]*
 
 PLUS = _"+"_
 MINUS = _"-"_
