@@ -1,0 +1,20 @@
+{
+  "name": "pegjs-bower-example",
+  "homepage": "https://github.com/ULL-ESIT-PL-1617/pegjs-examples",
+  "authors": [
+    "Casiano Rodriguez Leon <casiano.rodriguez.leon@gmail.com>"
+  ],
+  "description": "pegjs >0.10.0 in the browser",
+  "main": "calc.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pegjs": "^0.10.0"
+  }
+}
