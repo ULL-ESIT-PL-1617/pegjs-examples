@@ -1,4 +1,5 @@
 node_modules/
+bower_components
 grammar-repository/
 coffee-plugin-examples/CplusplusNested.y
 coffee-pluginugin-examples/ambiguous.js

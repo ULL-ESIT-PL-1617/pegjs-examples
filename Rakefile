@@ -23,7 +23,14 @@ end
 
 desc "Compile arithmetics.pegjs browser version"
 task :web do
-  sh "#{PEGJS} -e calculator arithmetics.pegjs"
+  sh "#{PEGJS} -e calculator --format global arithmetics.pegjs"
+  sh "open calculatorglobal.html"
+end
+
+desc "Compile arithmetics.pegjs browser version"
+task :web2 do
+  sh "bower install pegjs"
+  sh "open calculator.html"
 end
 
 desc "Compile and run anbncn"
