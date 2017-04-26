@@ -1,5 +1,5 @@
 {
-  var PEGStack = require('./pegjs-stack.js');
+  var PEGStack = require('@ull-esit-pl/peg-stack');
   var stack = new PEGStack();
   var action = function() {
     var [val1, op, val2] = stack.pop(3);
