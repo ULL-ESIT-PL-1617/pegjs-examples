@@ -3,15 +3,23 @@
  * "2*(3+4)". The parser generated from this grammar then computes their value.
  */
 
+{
+  var sum = 0;
+  var update = function(op, value) {
+    if (op == '-') sum -= value
+    else if (op == '+') sum += value;
+  }
+}
 start
   = additive
 
 additive
-  = left:multiplicative PLUS right:additive { return left + right; }
+  = left:multiplicative &{ sum = left; }
+        (op:ADDOP right:multiplicative &{  update(op, right); })*  { return sum; }
   / multiplicative
 
 multiplicative
-  = left:primary MULT right:multiplicative { return left * right; }
+  = left:primary MULTOP right:multiplicative { return left * right; }
   / primary
 
 primary
@@ -24,8 +32,7 @@ integer "integer"
 
 _ = $[ \t\n\r]*
 
-PLUS = _"+"_
-MINUS = _"-"_
+ADDOP = _op:[+-]_ { return op; }
 MULT = _"*"_
 DIV = _"/"_
 LEFTPAR = _"("_
