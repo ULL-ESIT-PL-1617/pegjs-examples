@@ -4,6 +4,7 @@ grammar-repository/
 coffee-plugin-examples/CplusplusNested.y
 coffee-pluginugin-examples/ambiguous.js
 coffee-pluginlugin-examples/grammar-repository/
+removeleftrecursionwithintermidateactions2.js
 pascal_comments.js
 simple2.js
 coffee-plugin-examples/ambiguous.js
