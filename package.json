@@ -4,6 +4,7 @@
   "description": "PEG.js examples",
   "main": "",
   "dependencies": {
+    "@ull-esit-pl/peg-stack": "github:ull-esit-pl/peg-stack",
     "pegjs": "^0.10.0",
     "pegjs-coffee-plugin": "^0.3.0"
   },
