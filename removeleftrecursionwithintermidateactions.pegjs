@@ -1,40 +1,43 @@
-/*
- * Classic example grammar, which recognizes simple arithmetic expressions like
- * "2*(3+4)". The parser generated from this grammar then computes their value.
- */
-
 {
-  var sum = 0;
-  var update = function(op, value) {
-    if (op == '-') sum -= value
-    else if (op == '+') sum += value;
-  }
+  var stack = [];
+  var initstack = function(first) { 
+    stack.push(first); 
+    return true; 
+  };
+  var add = function(op, p) {
+    //console.log(op);
+    try {
+      eval(`stack[stack.length-1] ${op}= p`); 
+    }
+    catch(e) {
+      console.log(e.message);
+    }
+    switch(op) {
+        case '+':
+            stack[stack.length-1] += p; 
+            break;
+        case '-':
+            stack[stack.length-1] -= p; 
+            break;
+        case '*':
+            stack[stack.length-1] *= p; 
+            break;
+        case '/':
+            stack[stack.length-1] /= p; 
+            break;
+        default:
+            error('"+" or "-" or "*" or "/" expected');
+    }
+    console.log(stack);
+    return true;
+  };
 }
-start
-  = additive
 
-additive
-  = left:multiplicative &{ sum = left; }
-        (op:ADDOP right:multiplicative &{  update(op, right); })*  { return sum; }
-  / multiplicative
+sum     = first:product &{ return initstack(first); } 
+          (op:[+-] product:product & { return add(op, product); })* { return stack.pop(); } 
+product = first:value &{ return initstack(first); } 
+          (op:[*/] value:value & { return add(op, value); })* { return stack.pop(); } 
+value   = number:$[0-9]+                     { return parseInt(number,10); }
+        / '(' sum:sum ')'                    { return sum; }
 
-multiplicative
-  = left:primary MULTOP right:multiplicative { return left * right; }
-  / primary
 
-primary
-  = integer
-  / LEFTPAR additive:additive RIGHTPAR { return additive; }
-
-/* A rule can also contain human-readable name that is used in error messages (in our example, only the integer rule has a human-readable name). */
-integer "integer"
-  = NUMBER
-
-_ = $[ \t\n\r]*
-
-ADDOP = _op:[+-]_ { return op; }
-MULT = _"*"_
-DIV = _"/"_
-LEFTPAR = _"("_
-RIGHTPAR = _")"_
-NUMBER = _ digits:$[0-9]+ _ { return parseInt(digits, 10); }
