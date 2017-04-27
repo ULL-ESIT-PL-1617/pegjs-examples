@@ -1,5 +1,6 @@
-{
-  var PEGStack = require('@ull-esit-pl/peg-stack');
+{ // Specify dependency instead in the comand line 
+  // option -d PEGStack:@ull-esit-pl/peg-stack
+  // var PEGStack = require('@ull-esit-pl/peg-stack');
   var stack = new PEGStack();
   var action = function() {
     var [val1, op, val2] = stack.pop(3);

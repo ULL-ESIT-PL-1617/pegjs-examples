@@ -6,6 +6,16 @@ task :compile do
   sh "#{PEGJS} arithmetics.pegjs"
 end
 
+desc "Compile removeleftrecursionwithintermidateactions2.pegjs"
+task :leftrecint do
+  sh "pegjs -d PEGStack:@ull-esit-pl/peg-stack removeleftrecursionwithintermidateactions2.pegjs"
+end
+
+desc "Run and use the parser generated from removeleftrecursionwithintermidateactions2.pegjs"
+task :runleftrecint => :leftrecint do
+  sh "./use_remove2.js '2*3+4*5-2*(1+1)'"
+end
+
 desc "Compile simple_reduce.pegjs"
 task :leftrec do
   sh "pegjs simple_reduce.pegjs simple.js"
