@@ -6,6 +6,11 @@ task :compile do
   sh "#{PEGJS} arithmetics.pegjs"
 end
 
+desc "Clean grammar"
+task :clean do
+  sh "pegjs-strip --strip-comment --clean-semantic removeleftrecursionwithintermidateactions2.pegjs"
+end
+
 desc "Compile removeleftrecursionwithintermidateactions2.pegjs"
 task :leftrecint do
   sh "pegjs -d PEGStack:@ull-esit-pl/peg-stack removeleftrecursionwithintermidateactions2.pegjs"
