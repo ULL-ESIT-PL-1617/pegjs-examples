@@ -12,7 +12,8 @@
     catch(e) {
       console.log(e.message);
     }
-    switch(op) {
+    /*
+     switch(op) {
         case '+':
             stack[stack.length-1] += p; 
             break;
@@ -28,6 +29,7 @@
         default:
             error('"+" or "-" or "*" or "/" expected');
     }
+    */
     console.log(stack);
     return true;
   };
