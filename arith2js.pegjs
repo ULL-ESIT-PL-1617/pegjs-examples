@@ -19,7 +19,11 @@ exp
 
 primary
   = NUMBER
-  / ID
+  / id:ID { 
+      if (!sym[id]) 
+        console.error(`Variable ${id.slice(1)} not initialized at line ${location().start.line}`); 
+      return id; 
+    }
   / $(LEFTPAR exp RIGHTPAR)
 
 _ = $[ \t\n\r]*

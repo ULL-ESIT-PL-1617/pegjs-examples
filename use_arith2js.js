@@ -14,3 +14,11 @@ console.log(r);
  * $b = (a+1)/a;
  * a+b+9
  */
+input = `
+a <- 4-a-1:
+b <- (a+1)/a:
+a+b+9+c:
+`;
+console.log(`Processing <${input}>`);
+r = PEG.parse(input);
+console.log(r);
