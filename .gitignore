@@ -40,3 +40,8 @@ simple3.js
 text.js
 tri.js
 typedesclang.js
+arith2js.js
+parameterspegjs/grammar.js
+removeleftrecursionwithintermidateactions.js
+removeleftrecursionwithintermidateactions3.js
+removeleftrecursionwithintermidateactions3.pegjs
