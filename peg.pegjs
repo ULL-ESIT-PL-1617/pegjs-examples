@@ -3,11 +3,9 @@ grammar = rules:rule+ { return rules.join("\n"); }
 rule = id:ID ARROW alt:alt alts:(OR alt)* SC
          {
            alts = alts.map(([_, a]) => a);
-           let rest = alts.map((a) => { return a === "''"? "" : `
-               else if (lh in first["${a}"]) {
-               ${
-               }
-               }
+           let rest;
+           rest  = alts.map((a) => { return a === "''"? "" : `
+               else if (lh in first["${a}"]) { }
            `;
            }).join('');
            //console.log(rest);
