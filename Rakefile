@@ -38,6 +38,12 @@ task :a2js do
 end
 
 desc "Run and use the parser generated from arithmetics.pegjs"
+task :topeg do
+  sh "pegjs peg-simple.pegjs"
+  sh "node use-peg-simple.js"
+end
+
+desc "Run and use the parser generated from arithmetics.pegjs"
 task :grammar do
   sh "pegjs peg.pegjs"
   sh "node use_peg.js"
