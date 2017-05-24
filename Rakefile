@@ -37,6 +37,12 @@ task :a2js do
   sh "node use_arith2js.js"
 end
 
+desc "Run and use the parser generated from arithmetics.pegjs"
+task :grammar do
+  sh "pegjs peg.pegjs"
+  sh "node use_peg.js"
+end
+
 desc "Run and use the parser generated from simple_reduce.pegjs"
 task :runleftrec => :leftrec do
   sh "./use_simple.js '(4-1-1)/2/2'"
