@@ -23,7 +23,7 @@ end
 
 desc "Compile simple_reduce.pegjs"
 task :leftrec do
-  sh "pegjs simple_reduce.pegjs simple.js"
+  sh "pegjs -o simple.js simple_reduce.pegjs"
 end
 
 desc "Run and use the parser generated from arithmetics.pegjs"
