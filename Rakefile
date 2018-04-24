@@ -23,7 +23,7 @@ end
 
 desc "Compile simple_reduce.pegjs"
 task :leftrec do
-  sh "pegjs -o simple.js simple_reduce.pegjs"
+  sh "pegjs simple_reduce.pegjs simple.js"
 end
 
 desc "Run and use the parser generated from arithmetics.pegjs"
@@ -94,4 +94,10 @@ desc "Compile and run typedesclang"
 task :postfix do
   sh "../bin/pegjs infixtopostfix.pegjs"
   #sh "./use_infix2postfix.js"
+end
+
+desc "Compile and run typedesclang"
+task :jison do
+  sh "jison grammarvspeg.jison -o gvsp.js"
+  sh "./use_jison.js"
 end

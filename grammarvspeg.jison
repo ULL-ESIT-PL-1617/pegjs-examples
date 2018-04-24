@@ -1,10 +1,15 @@
-/* operator associations and precedence */
+%left 'c'
+%left 'b'
+%right 'a'
 
-%right 'a' 'b' 'c'
-%right C
-%right D
+%lex
 %%
-a:  'b' 'c'
+\s+               { /* skip whitespace */ }
+.                 { return yytext; }
+/lex
+
+%%
+A:  B 'c'
 ;
-b: 'b' %prec C | 'b' 'a' %prec D
+B: 'b' | 'b' 'a'   
 ;

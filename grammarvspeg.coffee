@@ -13,15 +13,3 @@ try
   console.log("r = #{r}")
 catch e
   console.log(e.message)
-
-#  this works 
-grammar = """
-  a =  b 'c'
-  b = 'b' 'a' / 'b'   
-"""
-parser = PEG.generate grammar, plugins: [coffee]
-try
-  r = parser.parse "bac"
-  console.log("r = #{r}")
-catch e
-  console.log(e.message)
