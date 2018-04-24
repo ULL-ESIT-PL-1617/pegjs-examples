@@ -1,0 +1,8 @@
+PEGJS = "pegjs"
+task :default => :jison
+
+desc " compile jison grammar and run use_jison"
+task :jison do
+  sh "jison grammarvspeg.jison -o gvsp.js"
+  sh "./use_jison.js"
+end
