@@ -8,7 +8,7 @@ try {
   console.log("OK: "+parser.parse(input));
 }
 catch(e) {
-  console.log(e.message);
+  console.log(e.message); // Expected "c" or any character but end of input found.
 }
 
 let grammar2 = `
