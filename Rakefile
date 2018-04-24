@@ -96,8 +96,3 @@ task :postfix do
   #sh "./use_infix2postfix.js"
 end
 
-desc "Compile and run typedesclang"
-task :jison do
-  sh "jison grammarvspeg.jison -o gvsp.js"
-  sh "./use_jison.js"
-end
